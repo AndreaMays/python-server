@@ -40,8 +40,6 @@ def get_single_customer(id):
     return requested_customer
 
 def create_customer(customer):
-    # Get the id value of the last animal in the list
-    #"max_id" would equal 3 
     max_id = CUSTOMERS[-1]["id"]
 
     # Add 1 to whatever that number is
@@ -55,3 +53,18 @@ def create_customer(customer):
 
     # Return the dictionary with `id` property added
     return customer
+
+def delete_customer(id):
+    # Initial -1 value for animal index, in case one isn't found
+    customer_index = -1
+
+    # Iterate the ANIMALS list, but use enumerate() so that you
+    # can access the index value of each item and the animal. So enumerate() lets you access two things at once.
+    for index, customer in enumerate(CUSTOMERS):
+        if customer["id"] == id:
+            # Found the animal. Store the current index.
+            customer_index = index
+
+    # If the animal was found, use pop(int) to remove it from list. ".pop" pass it an index and thats what gets removed
+    if customer_index >= 0:
+        CUSTOMERS.pop(customer_index)

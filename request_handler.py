@@ -2,7 +2,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from animals import get_all_animals, get_single_animal, create_animal, delete_animal
 from locations import get_all_locations, get_single_location, create_location, delete_location
 from employees import get_all_employees, get_single_employee, create_employee, delete_employee
-from customers import get_all_customers, get_single_customer, create_customer
+from customers import get_all_customers, get_single_customer, create_customer, delete_customer
 import json
 
 
@@ -114,38 +114,38 @@ class HandleRequests(BaseHTTPRequestHandler):
         (resource, id) = self.parse_url(self.path)
 
         # Initialize new animal
-        new_animal = None
+        new_object = None
 
         # We are checking the resource on line 121. Add a new animal to the list. Don't worry about
         # the orange squiggle, you'll define the create_animal
         # function next. 
         #"post_body" is the body of the post/object in the Animals array of objects
         if resource == "animals":
-            new_animal = create_animal(post_body)
+            new_object = create_animal(post_body)
 
         # Encode the new animal and send in response
-        self.wfile.write(f"{new_animal}".encode())
+        
 
         #locations post request
-        new_location = None
+        # new_object = None
         if resource == "locations":
-            new_location = create_location(post_body)
+            new_object = create_location(post_body)
 
-        self.wfile.write(f"{new_location}".encode())
+        
 
          #employees post request
-        new_employee = None
+        # new_object = None
         if resource == "employees":
-            new_employee = create_employee(post_body)
+            new_object = create_employee(post_body)
 
-        self.wfile.write(f"{new_employee}".encode())
+       
 
         #customers post request
-        new_customer = None
+        # new_object = None
         if resource == "customers":
-            new_customer = create_customer(post_body)
+            new_object = create_customer(post_body)
 
-        self.wfile.write(f"{new_customer}".encode())
+        self.wfile.write(f"{new_object}".encode())
 
 
     # Here's a method on the class that overrides the parent's method.
@@ -163,6 +163,20 @@ class HandleRequests(BaseHTTPRequestHandler):
     # Delete a single animal from the list
         if resource == "animals":
             delete_animal(id)
+    
+    # Delete a single location from the list
+        if resource == "locations":
+            delete_location(id)
+
+    # Delete a single location from the list
+        if resource == "employees":
+            delete_employee(id)
+
+    # Delete a customer location from the list
+        if resource == "customers":
+            delete_customer(id)
+
+
 
     # Encode the new animal and send in response
         self.wfile.write("".encode())
