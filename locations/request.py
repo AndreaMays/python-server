@@ -8,6 +8,11 @@ LOCATIONS = [
       "id": 2,
       "name": "Nashville South",
       "address": "209 Emory Drive"
+    },
+    {
+      "id": 3,
+      "name": "Nashville South East",
+      "address": "2020 Puppy Way"
     }
 ]
 
@@ -29,3 +34,32 @@ def get_single_location(id):
             requested_location = location
 
     return requested_location
+
+def create_location(location):
+    # Get the id value of the last animal in the list
+    #"max_id" would equal 3 
+    max_id = LOCATIONS[-1]["id"]
+
+    # Add 1 to whatever that number is
+    new_id = max_id + 1
+
+    # Add an `id` property to the animal dictionary
+    location["id"] = new_id
+
+    # Add the animal dictionary to the list (append is like the "push" to javascript arrays)
+    LOCATIONS.append(location)
+
+    # Return the dictionary with `id` property added
+    return location
+
+def delete_location(id):
+    
+    location_index = -1
+
+    for index, location in enumerate(LOCATIONS):
+        if location["id"] == id:
+            # Found the animal. Store the current index.
+            location_index = index
+
+    if location_index >= 0:
+        LOCATIONS.pop(location_index)
