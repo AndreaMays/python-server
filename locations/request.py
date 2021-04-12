@@ -8,6 +8,11 @@ LOCATIONS = [
       "id": 2,
       "name": "Nashville South",
       "address": "209 Emory Drive"
+    },
+    {
+      "id": 3,
+      "name": "Nashville South East",
+      "address": "2020 Puppy Way"
     }
 ]
 

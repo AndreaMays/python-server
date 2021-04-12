@@ -2,7 +2,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from animals import get_all_animals, get_single_animal, create_animal, delete_animal
 from locations import get_all_locations, get_single_location, create_location, delete_location
 from employees import get_all_employees, get_single_employee, create_employee, delete_employee
-from customers import get_all_customers, get_single_customer
+from customers import get_all_customers, get_single_customer, create_customer
 import json
 
 
@@ -139,6 +139,13 @@ class HandleRequests(BaseHTTPRequestHandler):
             new_employee = create_employee(post_body)
 
         self.wfile.write(f"{new_employee}".encode())
+
+        #customers post request
+        new_customer = None
+        if resource == "customers":
+            new_customer = create_customer(post_body)
+
+        self.wfile.write(f"{new_customer}".encode())
 
 
     # Here's a method on the class that overrides the parent's method.
