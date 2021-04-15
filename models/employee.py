@@ -5,4 +5,4 @@ class Employee():
         self.address = address
         self.locationId = locationId
 
-        new_employee = Employee(2, "Jayse Shipman", "5687 Flashman Court", 2)
+new_employee = Employee(2, "Jayse Shipman", "5687 Flashman Court", 2)

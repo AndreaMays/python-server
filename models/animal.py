@@ -11,4 +11,4 @@ class Animal():
         self.location_id = location_id
         self.customer_id = customer_id
 
-        new_animal = Animal(1, "Snickers", "Dog", "Recreation", 1, 4)
+new_animal = Animal(1, "Snickers", "Dog", "Recreation", 1, 4)
