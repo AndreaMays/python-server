@@ -7,3 +7,4 @@ class Customer():
         self.password = password
 
 new_customer = Customer(1, "Al Roker", "7002 Chestnut Ct" )
+
