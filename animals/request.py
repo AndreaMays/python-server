@@ -234,7 +234,7 @@ def create_animal(new_animal):
             ( name, breed, status, location_id, customer_id )
         VALUES
             ( ?, ?, ?, ?, ?);
-        """, (new_animal['name'], new_animal['species'],
+        """, (new_animal['name'], new_animal['breed'],
               new_animal['status'], new_animal['locationId'],
               new_animal['customerId'], ))
 
