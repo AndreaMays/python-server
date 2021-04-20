@@ -75,37 +75,37 @@ class HandleRequests(BaseHTTPRequestHandler):
             ( resource, id ) = parsed
 
 
-        if resource == "animals":
-            if id is not None:
-                response = f"{get_single_animal(id)}"
-            else:
-                response = f"{get_all_animals()}"
+            if resource == "animals":
+                if id is not None:
+                    response = f"{get_single_animal(id)}"
+                else:
+                    response = f"{get_all_animals()}"
 
         # This weird code sends a response back to the client
 
         # line 71-78 is for locations
-        if resource == "locations":
-            if id is not None:
-                response = f"{get_single_location(id)}"
+            if resource == "locations":
+                if id is not None:
+                    response = f"{get_single_location(id)}"
 
-            else:
-                response = f"{get_all_locations()}"
+                else:
+                    response = f"{get_all_locations()}"
 
        
 
-        if resource == "employees":
-            if id is not None:
-                response = f"{get_single_employee(id)}"
+            if resource == "employees":
+                if id is not None:
+                    response = f"{get_single_employee(id)}"
 
-            else:
-                response = f"{get_all_employees()}"
+                else:
+                    response = f"{get_all_employees()}"
 
         
-        elif resource == "customers":
-                if id is not None:
-                    response = f"{get_single_customer(id)}"
-                else:
-                    response = f"{get_all_customers()}"
+            elif resource == "customers":
+                    if id is not None:
+                        response = f"{get_single_customer(id)}"
+                    else:
+                        response = f"{get_all_customers()}"
 
         # Response from parse_url() is a tuple with 3
         # items in it, which means the request was for
